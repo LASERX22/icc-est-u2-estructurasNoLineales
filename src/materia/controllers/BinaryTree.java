@@ -79,4 +79,22 @@ public class BinaryTree {
             System.out.print(raiz.getValor() + " ");
         }
     }
+
+    public boolean findvalue(int valor){
+        return findvalueRec(raiz,valor);
+    }
+
+    private boolean findvalueRec(Node raiz, int valor) {
+        if (raiz == null) {
+            return false;
+        }
+        if (raiz.getValor() == valor) {
+            return true; 
+        }
+        if (valor < raiz.getValor()) {
+            return findvalueRec(raiz.getLeft(), valor);
+        } else{
+            return findvalueRec(raiz.getRight(), valor);
+        }
+    }
 }
